@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -39,13 +40,13 @@ public class ProdutoController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Produto> post(@RequestBody Produto novoProduto){
+	public ResponseEntity<Produto> post(@Valid @RequestBody Produto novoProduto){
 
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(novoProduto));
 	}
 	
 	@PutMapping
-	public ResponseEntity<Produto> put(@RequestBody Produto novoProduto){
+	public ResponseEntity<Produto> put(@Valid @RequestBody Produto novoProduto){
 
 		return ResponseEntity.status(HttpStatus.OK).body(repository.save(novoProduto));
 	}
