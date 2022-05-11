@@ -33,12 +33,12 @@ public class Produto {
     @JsonIgnoreProperties("produtos")
     private Categoria categoria;
 
+	@ManyToOne
+	@JsonIgnoreProperties("produtos")
+	private Usuario usuario;
+
 	Produto() {};
 
-	Produto(int quantidade) {
-		this.quantidade = quantidade;
-	};
-    
 	public Produto(String nome, double preco, int quantidade, Categoria categoria) {
 		this.nome = nome;
 		this.preco = preco;
@@ -47,10 +47,12 @@ public class Produto {
 	}
 
 	public Long getId() {
+		System.out.println("GET:" + id);
 		return id;
 	}
 
 	public void setId(Long id) {
+		System.out.println("SET:" + id);
 		this.id = id;
 	}
 

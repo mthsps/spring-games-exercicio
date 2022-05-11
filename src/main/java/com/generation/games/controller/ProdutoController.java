@@ -41,6 +41,7 @@ public class ProdutoController {
 	
 	@PostMapping
 	public ResponseEntity<Produto> post(@Valid @RequestBody Produto novoProduto){
+		System.out.println(novoProduto.getId());
 
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(novoProduto));
 	}
